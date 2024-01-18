@@ -96,15 +96,17 @@ There are six secrets and one environmental variable needed for both deployments
 As CloudFormation completed and 2 EC2 were started we complete all these secrets. <br>
 
 ![](/images/03-image03.png)
-  Figure 10: secrets/environment variables for in-place/blue-green deployments. <br>
-  DOCKERHUB_USERNAME and DOCKERHUB_TOKEN are your docker username and password.<br>
-  HOST can be found from your EC2 Public IpV4 Address.<br>
-  SSH_PRIVATE_KEY --> https://github.com/marketplace/actions/ssh-remote-commands<br>
-  USER is ec2-user as CloudFormation code here was designed to use AWS Linux. <br>
-  IAMROLE_GITHUB --> see figure 10 below how to find this role. <br>
-  AWS_REGION is where your region, in my case it is us-east-1.
-<br><br>
+Figure 10: secrets/environment variables for in-place/blue-green deployments. <br><br>
 
+```txt
+DOCKERHUB_USERNAME and DOCKERHUB_TOKEN are your docker username and password.
+HOST can be found from your EC2 Public IpV4 Address.
+SSH_PRIVATE_KEY --> https://github.com/marketplace/actions/ssh-remote-commands.
+USER is ec2-user as CloudFormation code here was designed to use AWS Linux. 
+IAMROLE_GITHUB --> see figure 10 below how to find this role. 
+AWS_REGION is where your region, in my case it is us-east-1.
+```
+<br><br>
 
 ![](/images/03-image04.png)
   Figure 11: Example of IAMROLE_ROLE that can be found in CloudFormation --> Stacks --> Outputs --> GithubIAMRoleArn 
@@ -202,8 +204,8 @@ We should see successful pipeline like below as well.
 <br><br>
 
 ## Closing Down everything
-If found it is easier to turn off Cloudformation directly which would shut <br>
-down AutoScaling and EC2. Some say differently to shut down Autoscaling first.<br>
+I found it is easier to turn off Cloudformation directly which would shut <br>
+down AutoScaling and EC2. Some says differently to shut down Autoscaling first.<br>
 
 In any case please check again that all EC2, AutoScaling and CloudFormation <br>
 were completely turn off.
@@ -220,10 +222,15 @@ were completely turn off.
   Figure 17: All running Instances should be disappeared soon. 
 <br><br>
 
-![](/images/03-image21.png)1
+![](/images/03-image21.png)
   Figure 18: And CloudFormation should be stopped (manually).
 <br><br>
 
+## SUMMARY
+This blog brought more insight on GitHub Actions multiple CI/CD deployment and <br>
+little background on deployment strategies. If you are interested, please see <br>
+other Github Actions discussion on https://github.com/FariusGitHub/github-1 <br><br>
 
-
-
+Regarding Blue-Green deployment, in this case blue and green have no particular meaning<br>
+They could just as well have been called pink-red deployment, yellow-purple deployment.<br>
+The name is simply identifying the 2 versions of your application running in production.
