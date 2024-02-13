@@ -1,5 +1,9 @@
 # GitHub Actions Pipelines In-Place & Blue-Green <br> Deployments with Docker and CloudFormation
 
+The deployment strategy determines how the release processes are executed. For example, it may define whether the deployment is done through manual steps or automated scripts, the frequency of deployments (e.g., continuous deployment or scheduled releases), and the deployment environment (e.g., cloud-based, on-premises, or hybrid).
+
+By aligning the release processes with the deployment strategy, organizations can ensure a smooth and efficient deployment of software, minimizing downtime and disruptions to the production environment. It also helps in maintaining consistency and reliability in the deployment process, enabling faster and more frequent releases while reducing the risk of errors or failures.
+
 Digging more into GitHub Actions workflow, we can take below examples of deploying the same code <br> 
 in term of CI/CD. Traditional full Docker deployment can be applied that usually know as in-place<br>
 deployment. A more complex deployment with no downtime can be brought such as using CodeDeploy.<br>
